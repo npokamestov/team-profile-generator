@@ -1,11 +1,7 @@
-//Generates team
-
 const generateTeam = team => {
-    // console.log(this)
 
     // Generate a manager card
     const generateManager = manager => {
-        console.log(manager)
         return `
         <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 justify-content-center">
             <div class="col mb-4" >
@@ -30,7 +26,6 @@ const generateTeam = team => {
     `};
     // Generate an engineer card
     const generateEngineer = engineer => {
-        console.log(engineer)
         return `
         <div class="col mb-4" >
             <div class="card" >      
@@ -53,7 +48,6 @@ const generateTeam = team => {
     `};
     // Generate an intern card
     const generateIntern = intern => {
-        // console.log(this)
         return `
         <div class="col mb-4" >
             <div class="card" >   
@@ -89,7 +83,6 @@ const generateTeam = team => {
         .map(intern => generateIntern(intern))
         .join("")
     );
-    console.log(html)
         return html.join("");
 }
 //HTML page function
