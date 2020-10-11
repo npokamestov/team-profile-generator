@@ -1,16 +1,35 @@
+// const { writeFile, copyFile } = require('./utils/generate-site.js');
 const inquirer = require('inquirer');
 const fs = require('fs');
 // const { prompt } = require('inquirer');
 
-const generatePage = require('./src/page-template.js');
+// const generatePage = require('./src/page-template.js');
 
-const employeeData = {}
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
-const promptEmployeeManager = () => {
-    if(!employeeData.manager) {
-        employeeData.manager = [];
-    }
+const teamMembers = [];
+const employeeIdArr = [];
+
+const promptUser = () => {
+
+const promptManager = () => {
     return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'teamName',
+            message: 'What is the name of the team?',
+            validate: teamName => {
+                if (teamName) {
+                    return true;
+                }
+                else {
+                    console.log("Please enter the team's name!");
+                    return false;
+                }
+            }
+        },
         {
             type: 'input',
             name: 'name',
@@ -68,12 +87,9 @@ const promptEmployeeManager = () => {
             }
         }
     ])
-    .then(managerData => {
-        employeeData.manager.push(managerData);
-        console.log(employeeData)
-        return employeeData;
-    })
-    .then(promptAddEmployee)
+    .then(answers => {
+        const manager = new Manager (answers.managerName)
+    }
 };
 
 const promptEmployeeEngineer = () => {
@@ -254,3 +270,16 @@ promptEmployeeManager()
     .then(employeeData => {
         return generatePage(employeeData);
     })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+        return copyFile();
+    })
+    .then(copyFileResponse => {
+        console.log(copyFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    });
