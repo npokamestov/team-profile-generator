@@ -76,6 +76,8 @@ To use the app, run the following command:
 ```
 node index.js
 ```
+After running the app, the generated HTML will be in the "dist" folder as "sampleIndex.html"
+
 
 ## Contributing
 
@@ -109,8 +111,12 @@ https://npokamestov.github.io/team-profile-generator/
 
 ## Video
 
+https://drive.google.com/file/d/1icrjD8pTK-AsTno3EdY19z2LuLWpXEz_/view
 
 ## Screenshots
+![screenshot of application in VS Code](./assets/images/screenshot-1.png)
+
+![screenshot of generated HTML page](./assets/images/screenshot-2.png)
 
 ## Questions?
 

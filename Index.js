@@ -9,7 +9,6 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
 const teamMembers = [];
-const employeeIds = [];
 
 const promptUser = () => {
 
@@ -73,9 +72,8 @@ const promptUser = () => {
             }
         ])
         .then(answers => {
-            const manager = new Manager (answers.teamName, answers.name, answers.id, answers.email, answers.office);
+            const manager = new Manager (answers.name, answers.id, answers.email, answers.office);
             teamMembers.push(manager);
-            employeeIds.push(answers.id);
             promptAddEmployee();
         });
     };
@@ -147,7 +145,6 @@ Add a New Engineer
         .then(answers => {
             const engineer = new Engineer (answers.name, answers.id, answers.email, answers.github);
             teamMembers.push(engineer);
-            employeeIds.push(answers.id);
             promptAddEmployee();
         })
     };
@@ -219,7 +216,6 @@ Add a New Intern
         .then(answers => {
             const intern = new Intern (answers.name, answers.id, answers.email, answers.school);
             teamMembers.push(intern);
-            employeeIds.push(answers.id);
             promptAddEmployee();
         })
     };
