@@ -95,7 +95,7 @@ npm run test
 
 
 ## GitHub Repository Link
-https://npokamestov.github.io/team-profile-generator/
+https://github.com/npokamestov/team-profile-generator
 
 
 ## Built With
